@@ -1,8 +1,7 @@
-package org.springdoc.demos.users.config;
+package test.org.springdoc.api.v31.app251.config;
 
 public class ApiVersionParser implements org.springframework.web.accept.ApiVersionParser {
 
-    // allows us to use /api/v2/users instead of /api/2.0/users
     @Override
     public Comparable parseVersion(String version) {
         // Remove "v" prefix if it exists (v1 becomes 1, v2 becomes 2)

@@ -1,4 +1,4 @@
-package org.springdoc.demos.users.user;
+package test.org.springdoc.api.v31.app251.user;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,24 +23,24 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    // USING REQUEST HEADER ======================================================
+	// USING REQUEST PARAMETER (Query Parameter) ===================================
 
-    @GetMapping(value = "/users", version = "1.0")
-    public List<UserDTOv1> getUsersV1() {
-        log.info("Find All Users using request header: {}", "v1");
-        return userRepository.findAll()
-                .stream()
-                .map(userMapper::toV1)
-                .collect(Collectors.toList());
-    }
+	@GetMapping(value = "/users/list", params = "version=1.0")
+	public List<UserDTOv1> listUsersV1() {
+		log.info("Find All Users using request header: {}", "v1");
+		return userRepository.findAll()
+				.stream()
+				.map(userMapper::toV1)
+				.collect(Collectors.toList());
+	}
 
-    @GetMapping(value = "/users", version = "2.0")
-    public List<UserDTOv2> getUsersV2() {
-        log.info("Find All Users using request header: {}", "v2");
-        return userRepository.findAll()
-                .stream()
-                .map(userMapper::toV2)
-                .collect(Collectors.toList());
-    }
+	@GetMapping(value = "/users/list", params = "version=v2")
+	public List<UserDTOv2> listUsersV2() {
+		log.info("Find All Users using request header: {}", "v2");
+		return userRepository.findAll()
+				.stream()
+				.map(userMapper::toV2)
+				.collect(Collectors.toList());
+	}
 	
 }
