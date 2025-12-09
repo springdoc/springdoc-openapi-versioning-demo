@@ -1,12 +1,10 @@
 package org.springdoc.demos.users.user;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,24 +22,18 @@ public class UserController {
         this.userMapper = userMapper;
     }
 
-    // USING MEDIA TYPE (Content Negotiation) =======================================
+	// USING PATH SEGMENT ======================================================
 
-    @GetMapping(value = "/users/media", version = "1.0", produces = "application/json")
-    public List<UserDTOv1> getUsersMediaV1() {
-        log.info("Find All Users using media type versioning: {}", "v1");
-        return userRepository.findAll()
-                .stream()
-                .map(userMapper::toV1)
-                .collect(Collectors.toList());
-    }
+	@GetMapping(value = "/v{api}/users", version = "1.0")
+	public List<User> findAllv1() {
+		log.info("Finding all users v1");
+		return userRepository.findAll();
+	}
 
-    @GetMapping(value = "/users/media", version = "2.0", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<UserDTOv2> getUsersMediaV2() {
-        log.info("Find All Users using media type versioning: {}", "v2");
-        return userRepository.findAll()
-                .stream()
-                .map(userMapper::toV2)
-                .collect(Collectors.toList());
-    }
+	@GetMapping(value = "/{version}/users", version = "2.0")
+	public List<User> findAllv2() {
+		log.info("Finding all users v2");
+		return userRepository.findAll();
+	}
 
 }
