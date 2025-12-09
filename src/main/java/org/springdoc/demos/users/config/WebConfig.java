@@ -1,4 +1,4 @@
-package test.org.springdoc.api.v31.app251.config;
+package org.springdoc.demos.users.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ApiVersionConfigurer;

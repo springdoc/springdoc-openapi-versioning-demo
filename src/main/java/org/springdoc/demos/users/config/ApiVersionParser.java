@@ -1,4 +1,4 @@
-package test.org.springdoc.api.v31.app251.config;
+package org.springdoc.demos.users.config;
 
 public class ApiVersionParser implements org.springframework.web.accept.ApiVersionParser {
 

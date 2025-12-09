@@ -1,4 +1,4 @@
-package test.org.springdoc.api.v31.app251.user;
+package org.springdoc.demos.users.user;
 
 import org.springframework.stereotype.Component;
 
