@@ -16,7 +16,7 @@ Each approach returns different response formats to demonstrate real-world API e
 
 ## ⚡ Quick Start
 
-1. **Prerequisites**: Java 25, Maven
+1. **Prerequisites**: Java 25 or 21, Maven
 2. **Run**: `./mvnw spring-boot:run`
 3. **Test**: Use the provided `api-requests.http` file (IntelliJ IDEA/VS Code) or HTTPie examples below
 
