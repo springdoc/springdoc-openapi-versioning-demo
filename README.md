@@ -24,7 +24,7 @@ The application starts on `http://localhost:8080`
 
 ## 🔧 Configuration
 
-Edit `src/main/java/dev/danvega/users/config/WebConfig.java` to enable different versioning strategies:
+Edit `src/main/java/org/springdoc/demos/users/config/WebConfig.java` to enable different versioning strategies:
 
 ```java
 // Uncomment the desired versioning method
