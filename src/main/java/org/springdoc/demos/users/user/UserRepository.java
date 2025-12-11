@@ -22,6 +22,6 @@ public class UserRepository {
 
     @PostConstruct
     private void init() {
-        users.add(new User(1,"Dan Vega","danvega@gmail.com"));
+        users.add(new User(1,"milou","milou@gmail.com"));
     }
 }
