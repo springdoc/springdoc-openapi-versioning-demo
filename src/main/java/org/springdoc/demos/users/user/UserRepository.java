@@ -16,10 +16,6 @@ public class UserRepository {
         return users;
     }
 
-    public User findById(Integer id) {
-        return users.stream().filter(u -> u.id().equals(id)).findFirst().orElse(null);
-    }
-
     @PostConstruct
     private void init() {
         users.add(new User(1,"Badr","badr@gmail.com"));

@@ -1,6 +1,7 @@
 package org.springdoc.demos.users.user;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,15 +26,21 @@ public class UserController {
 	// USING PATH SEGMENT ======================================================
 
 	@GetMapping(value = "/v{api}/users", version = "1.0")
-	public List<User> findAllv1() {
+	public List<UserDTOv1> findAllv1() {
 		log.info("Finding all users v1");
-		return userRepository.findAll();
+		return userRepository.findAll()
+				.stream()
+				.map(userMapper::toV1)
+				.collect(Collectors.toList());
 	}
 
 	@GetMapping(value = "/{version}/users", version = "2.0")
-	public List<User> findAllv2() {
+	public List<UserDTOv2> findAllv2() {
 		log.info("Finding all users v2");
-		return userRepository.findAll();
+		return userRepository.findAll()
+				.stream()
+				.map(userMapper::toV2)
+				.collect(Collectors.toList());
 	}
 
 }
